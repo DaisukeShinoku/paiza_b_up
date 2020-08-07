@@ -1,6 +1,12 @@
-# n = gets.to_i
+input = gets.chars
 
-# a = n.times.map{gets.split(" ", 2).map(&:to_i)}
+n = input.length-1
 
-# p a
+a = input[0].ord
+b = input[n].ord
 
+if a < b
+  puts true
+else
+  puts false
+end
