@@ -1,12 +1,15 @@
-input = gets.chars
+n = gets.to_i
 
-n = input.length-1
+arrays = n.times.map{gets.chomp.split(" ", 2)}
 
-a = input[0].ord
-b = input[n].ord
+change = []
 
-if a < b
-  puts true
-else
-  puts false
+arrays.each{|array| change << [array[0], array[1].to_i] }
+
+hash =  change.group_by(&:first).map{|k, v| [k, v.sum(&:last)]}.to_h
+
+sort = hash.sort_by { |_, v| v }.reverse.to_h
+
+sort.each do |key, value|
+  puts "#{key} #{value}"
 end

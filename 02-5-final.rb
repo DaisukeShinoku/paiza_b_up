@@ -6,6 +6,16 @@
 
 n = gets.to_i
 
-a = n.times.map{gets.split(" ", 2).map(&:to_i)}
+arrays = n.times.map{gets.split(" ", 2).map(&:to_i)}
 
-p a
+answers = []
+
+arrays.each{|array|
+  if array[0] == array[1]
+    answers << array[0] * array[1]
+  else
+    answers << array[0] + array[1]
+  end
+}
+
+p answers.inject(:+)
